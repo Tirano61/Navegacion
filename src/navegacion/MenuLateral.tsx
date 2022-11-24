@@ -7,6 +7,7 @@ import { Image, Text, useWindowDimensions, View } from 'react-native';
 import { styles } from '../theme/appTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Tabs } from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const Drawer = createDrawerNavigator();
@@ -32,7 +33,7 @@ export  const MenuLateral = () => {
 
 const MenuInterno = ( { navigation }: DrawerContentComponentProps) =>{
   return(
-    <DrawerContentScrollView>
+    <DrawerContentScrollView >
       {/* Contenedor del avatar */}
       <View style={styles.container}>
         <Image
@@ -46,14 +47,23 @@ const MenuInterno = ( { navigation }: DrawerContentComponentProps) =>{
       <View style={styles.menuContainer}>
         <TouchableOpacity 
           onPress={() => navigation.navigate('Tabs')}
-          style={styles.tochable}>
-          <Text style={styles.menuTexto}>Navegación</Text>
+          style={{
+            ...styles.tochable,
+            flexDirection: 'row',
+          }}>
+            <Icon name="arrow-forward-circle" size={25} color="#34495E"/>
+          <Text style={styles.menuTexto}>  Navegación</Text>
         </TouchableOpacity>   
 
         <TouchableOpacity 
           onPress={() => navigation.navigate('SettingsScreen')}
-          style={styles.tochable}>
-          <Text style={styles.menuTexto}>Ajustes</Text>
+          style={{
+            ...styles.tochable,
+            flexDirection: 'row',
+          }}
+        >
+          <Icon name="cog" size={25} color="#34495E"/>
+          <Text style={styles.menuTexto}>  Ajustes</Text>
         </TouchableOpacity> 
       </View>
     </DrawerContentScrollView>

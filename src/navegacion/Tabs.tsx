@@ -8,6 +8,7 @@ import { StackNavigator } from './StackNavigator';
 import { Platform, Text } from 'react-native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import { TopTabNavigator } from './TopTabNavigator';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 export const Tabs = () => {
     return Platform.OS === 'ios'
@@ -24,7 +25,7 @@ const TabsAndroid = () => {
     <BottomTabAndroid.Navigator
         sceneAnimationEnabled={true}
         barStyle={{
-            backgroundColor: '#3d14b3'  
+            backgroundColor: 'white'  
         }}
         screenOptions={ ({route}) => ({
             tabBarActiveTintColor: 'green',
@@ -41,18 +42,18 @@ const TabsAndroid = () => {
                 let iconName: string = '';
                 switch (route.name) {
                     case 'Tab1Screen':
-                        iconName = 'T1'
+                        iconName = 'layers-outline'
                         break;
                     case 'TopTabNavigator':
-                        iconName = 'TO'
+                        iconName = 'mail-open-outline'
                         break;
                     case 'StackNavigator':
-                        iconName = 'ST'
+                        iconName = 'reader-outline'
                         break;    
                     default:
                         break;
                 }
-                return <Text style={{color}}>{iconName}</Text>
+                return <Icon name={iconName}size={20} color="#218765"/>
             }
         })}
     >

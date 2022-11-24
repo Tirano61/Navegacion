@@ -3,10 +3,13 @@ import { View, Text, Button } from 'react-native';
 import { StackScreenProps } from '@react-navigation/stack'
 import { styles } from '../theme/appTheme';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useEffect } from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
  
 interface Props extends StackScreenProps <any, any>{};
 
-export const HomeScreen = ( props: Props ) => {
+export const HomeScreen = ( {navigation}: Props ) => {
+
 
    
   return (
@@ -16,7 +19,7 @@ export const HomeScreen = ( props: Props ) => {
         </Text>
         <Button
             title='Ir pagina 2'
-            onPress={ () => props.navigation.navigate('Pagina2Screen') }
+            onPress={ () => navigation.navigate('Pagina2Screen') }
         />
         <Text style={{marginTop: 30}}>
           Navegar con Argumentos
@@ -26,7 +29,7 @@ export const HomeScreen = ( props: Props ) => {
             ...styles.botonGrande,
             backgroundColor: '#5856d6'
           }}
-            onPress={ () => props.navigation.navigate('PersonaScreen', {id: 1, nombre: 'Pedro'}) }
+            onPress={ () => navigation.navigate('PersonaScreen', {id: 1, nombre: 'Pedro'}) }
           >
             <Text>Pedro</Text>
           </TouchableOpacity> 
@@ -34,7 +37,7 @@ export const HomeScreen = ( props: Props ) => {
             ...styles.botonGrande,
             backgroundColor: '#ff9427'
           }}
-            onPress={ () => props.navigation.navigate('PersonaScreen', {id: 2, nombre: 'Maria'}) }
+            onPress={ () => navigation.navigate('PersonaScreen', {id: 2, nombre: 'Maria'}) }
           >
             <Text>Maria</Text>
           </TouchableOpacity> 
