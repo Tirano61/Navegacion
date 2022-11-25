@@ -29,8 +29,10 @@ export const HomeScreen = ( {navigation}: Props ) => {
             ...styles.botonGrande,
             backgroundColor: '#5856d6'
           }}
+          
             onPress={ () => navigation.navigate('PersonaScreen', {id: 1, nombre: 'Pedro'}) }
           >
+            <Icon name='man-outline' size={30} color='white' />
             <Text>Pedro</Text>
           </TouchableOpacity> 
           <TouchableOpacity style={{
@@ -39,6 +41,7 @@ export const HomeScreen = ( {navigation}: Props ) => {
           }}
             onPress={ () => navigation.navigate('PersonaScreen', {id: 2, nombre: 'Maria'}) }
           >
+            <Icon name='woman-outline' size={30} color='white' />
             <Text>Maria</Text>
           </TouchableOpacity> 
         </View>
