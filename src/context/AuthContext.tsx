@@ -2,7 +2,8 @@
 
 
 
-import React,{ createContext } from "react";
+import React,{ createContext, useReducer } from "react";
+import { authReducer } from './authReducer';
 
 //Definir que informacion tendria aqui
 export interface AuthState{
@@ -23,15 +24,22 @@ export interface AuthContextProps {
     authState: AuthState,
     singIn: () => void,
 }
-// Crear ell contexto
+// Crear el contexto
 export const AuthContext = createContext({} as AuthContextProps);
 
 // Componente que es el proveedor del estado
 export const AuthProvider = ({ children }: any ) => {
+
+    const [authState, dispatch] = useReducer( authReducer, authInicialState );
+
+    const logIn = () =>{
+        dispatch({ type: 'signIn' });
+    }
+
     return (
         <AuthContext.Provider value={{
-            authState: authInicialState,
-            singIn: () => {},
+            authState: authState,
+            singIn: logIn,
         }}>
             {children}
         </AuthContext.Provider>

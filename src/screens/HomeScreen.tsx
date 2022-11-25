@@ -43,10 +43,6 @@ export const HomeScreen = ( {navigation}: Props ) => {
           </TouchableOpacity> 
         </View>
         
-          
-      
-        
-       
     </View>
   )
 }

@@ -14,6 +14,8 @@ export const SettingsScreen = () => {
   const { authState } = useContext( AuthContext );
 
 
+  const context = useContext( AuthContext )
+
   return (
     <View style={{
       ...styles.globalMargin,
@@ -21,7 +23,7 @@ export const SettingsScreen = () => {
       <Text style={{...styles.title}}>
         SettingsScreen
       </Text>
-      <Text>{ JSON.stringify(authState, null, 4) }</Text>
+      <Text>{JSON.stringify(context.authState, null, 4)}</Text>
     </View>
   )
 }
